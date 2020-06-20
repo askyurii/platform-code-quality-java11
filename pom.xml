@@ -1,65 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+				 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.bondarenko.platform</groupId>
-    <artifactId>platform-code-quality-java11</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+	<groupId>com.bondarenko.platform</groupId>
+	<artifactId>platform-code-quality-java11</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-    <name>Platform :: Code quality :: Java11</name>
+	<name>Platform :: Code quality :: Java11</name>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
-        <maven-changes-plugin.version>2.12.1</maven-changes-plugin.version>
-    </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
+		<maven-changes-plugin.version>2.12.1</maven-changes-plugin.version>
+	</properties>
 
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>${maven-jar-plugin.version}</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-changes-plugin</artifactId>
-                <version>${maven-changes-plugin.version}</version>
-                <configuration>
-                    <inputEncoding>${project.build.sourceEncoding}</inputEncoding>
-                    <outputEncoding>${project.build.sourceEncoding}</outputEncoding>
-                    <failOnError>true</failOnError>
-                    <runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>check-changes</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>changes-check</goal>
-                            <goal>changes-validate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven-jar-plugin.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-changes-plugin</artifactId>
+				<version>${maven-changes-plugin.version}</version>
+				<configuration>
+					<xmlPath>_changes/changes.xml</xmlPath>
+					<inputEncoding>${project.build.sourceEncoding}</inputEncoding>
+					<outputEncoding>${project.build.sourceEncoding}</outputEncoding>
+					<failOnError>true</failOnError>
+					<runOnlyAtExecutionRoot>true</runOnlyAtExecutionRoot>
+				</configuration>
+				<executions>
+					<execution>
+						<id>check-changes</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>changes-check</goal>
+							<goal>changes-validate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
-    <reporting>
-        <plugins>
-            <plugin>
-                <artifactId>maven-changes-plugin</artifactId>
-                <version>${maven-changes-plugin.version}</version>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>changes-report</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
-            </plugin>
-        </plugins>
-    </reporting>
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-changes-plugin</artifactId>
+				<version>${maven-changes-plugin.version}</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>changes-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
 
 </project>
