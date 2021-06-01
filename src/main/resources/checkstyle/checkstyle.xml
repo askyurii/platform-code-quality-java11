@@ -26,9 +26,7 @@
 			<property name="option" value="text" />
 		</module>
 		<module name="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck">
-			<property name="option" value="alone" />
-		</module>
+		<module name="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck" />
 		<module name="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck" />
 		<module name="com.puppycrawl.tools.checkstyle.checks.blocks.AvoidNestedBlocksCheck" />
 
@@ -76,7 +74,7 @@
 			<property name="processJavadoc" value="true" />
 		</module>
 		<module name="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck">
-			<property name="groups" value="java,/^javax?\./,*,io.spring" />
+			<property name="groups" value="java,javax,com,net,org,*,lombok" />
 			<property name="ordered" value="true" />
 			<property name="separated" value="true" />
 			<property name="option" value="bottom" />
