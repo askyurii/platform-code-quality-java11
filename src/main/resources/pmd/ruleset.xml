@@ -8,62 +8,325 @@
 		This ruleset defines the PMD rules for project.
 	</description>
 
-	<rule ref="category/java/bestpractices.xml/AvoidUsingHardCodedIP" />
-	<rule ref="category/java/bestpractices.xml/CheckResultSet" />
-	<rule ref="category/java/bestpractices.xml/UnusedImports" />
-	<rule ref="category/java/bestpractices.xml/UnusedFormalParameter" />
-	<rule ref="category/java/bestpractices.xml/UnusedLocalVariable" />
-	<rule ref="category/java/bestpractices.xml/UnusedPrivateField" />
-	<rule ref="category/java/bestpractices.xml/UnusedPrivateMethod" />
+	<!--https://pmd.github.io/latest/pmd_rules_java.html-->
 
-	<rule ref="category/java/codestyle.xml/DontImportJavaLang" />
-	<rule ref="category/java/codestyle.xml/DuplicateImports" />
-	<rule ref="category/java/codestyle.xml/ExtendsObject" />
-	<rule ref="category/java/codestyle.xml/ForLoopShouldBeWhileLoop" />
-	<rule ref="category/java/codestyle.xml/TooManyStaticImports" />
-	<rule ref="category/java/codestyle.xml/UnnecessaryFullyQualifiedName" />
-	<rule ref="category/java/codestyle.xml/UnnecessaryModifier" />
-	<rule ref="category/java/codestyle.xml/UnnecessaryReturn" />
-	<rule ref="category/java/codestyle.xml/UselessParentheses" />
-	<rule ref="category/java/codestyle.xml/UselessQualifiedThis" />
+	<!--Best Practices-->
+	<!--Rules which enforce generally accepted best practices.-->
 
-	<rule ref="category/java/design.xml/CollapsibleIfStatements" />
-	<rule ref="category/java/design.xml/SimplifiedTernary" />
-	<rule ref="category/java/design.xml/UselessOverridingMethod" />
+	<rule ref="category/java/bestpractices.xml/AbstractClassWithoutAbstractMethod"/>
+	<rule ref="category/java/bestpractices.xml/AccessorClassGeneration"/>
+	<rule ref="category/java/bestpractices.xml/AccessorMethodGeneration"/>
+	<rule ref="category/java/bestpractices.xml/ArrayIsStoredDirectly"/>
+	<rule ref="category/java/bestpractices.xml/AvoidMessageDigestField"/>
+	<rule ref="category/java/bestpractices.xml/AvoidPrintStackTrace"/>
+	<rule ref="category/java/bestpractices.xml/AvoidReassigningCatchVariables"/>
+	<rule ref="category/java/bestpractices.xml/AvoidReassigningLoopVariables"/>
+	<rule ref="category/java/bestpractices.xml/AvoidReassigningParameters"/>
+	<rule ref="category/java/bestpractices.xml/AvoidStringBufferField"/>
+	<rule ref="category/java/bestpractices.xml/AvoidUsingHardCodedIP"/>
+	<rule ref="category/java/bestpractices.xml/CheckResultSet"/>
+	<rule ref="category/java/bestpractices.xml/ConstantsInInterface"/>
+	<rule ref="category/java/bestpractices.xml/DefaultLabelNotLastInSwitchStmt"/>
+	<rule ref="category/java/bestpractices.xml/DoubleBraceInitialization"/>
+	<rule ref="category/java/bestpractices.xml/ForLoopCanBeForeach"/>
+	<rule ref="category/java/bestpractices.xml/ForLoopVariableCount"/>
+	<rule ref="category/java/bestpractices.xml/GuardLogStatement"/>
+	<rule ref="category/java/bestpractices.xml/JUnit4SuitesShouldUseSuiteAnnotation"/>
+	<rule ref="category/java/bestpractices.xml/JUnit4TestShouldUseAfterAnnotation"/>
+	<rule ref="category/java/bestpractices.xml/JUnit4TestShouldUseBeforeAnnotation"/>
+	<rule ref="category/java/bestpractices.xml/JUnit4TestShouldUseTestAnnotation"/>
+	<rule ref="category/java/bestpractices.xml/JUnit5TestShouldBePackagePrivate"/>
+	<!--<rule ref="category/java/bestpractices.xml/JUnitAssertionsShouldIncludeMessage"/>-->
+	<!--<rule ref="category/java/bestpractices.xml/JUnitTestContainsTooManyAsserts"/>-->
+	<rule ref="category/java/bestpractices.xml/JUnitTestsShouldIncludeAssert"/>
+	<rule ref="category/java/bestpractices.xml/JUnitUseExpected"/>
+	<rule ref="category/java/bestpractices.xml/LiteralsFirstInComparisons"/>
+	<rule ref="category/java/bestpractices.xml/LooseCoupling"/>
+	<rule ref="category/java/bestpractices.xml/MethodReturnsInternalArray"/>
+	<rule ref="category/java/bestpractices.xml/MissingOverride"/>
+	<rule ref="category/java/bestpractices.xml/OneDeclarationPerLine"/>
+	<rule ref="category/java/bestpractices.xml/PreserveStackTrace"/>
+	<rule ref="category/java/bestpractices.xml/ReplaceEnumerationWithIterator"/>
+	<rule ref="category/java/bestpractices.xml/ReplaceHashtableWithMap"/>
+	<rule ref="category/java/bestpractices.xml/ReplaceVectorWithList"/>
+	<rule ref="category/java/bestpractices.xml/SwitchStmtsShouldHaveDefault"/>
+	<rule ref="category/java/bestpractices.xml/SystemPrintln"/>
+	<rule ref="category/java/bestpractices.xml/UnusedAssignment"/>
+	<rule ref="category/java/bestpractices.xml/UnusedFormalParameter"/>
+	<rule ref="category/java/bestpractices.xml/UnusedLocalVariable"/>
+	<rule ref="category/java/bestpractices.xml/UnusedPrivateField"/>
+	<rule ref="category/java/bestpractices.xml/UnusedPrivateMethod"/>
+	<rule ref="category/java/bestpractices.xml/UseAssertEqualsInsteadOfAssertTrue"/>
+	<rule ref="category/java/bestpractices.xml/UseAssertNullInsteadOfAssertTrue"/>
+	<rule ref="category/java/bestpractices.xml/UseAssertSameInsteadOfAssertTrue"/>
+	<rule ref="category/java/bestpractices.xml/UseAssertTrueInsteadOfAssertEquals"/>
+	<rule ref="category/java/bestpractices.xml/UseCollectionIsEmpty"/>
+	<rule ref="category/java/bestpractices.xml/UseStandardCharsets"/>
+	<rule ref="category/java/bestpractices.xml/UseTryWithResources"/>
+	<rule ref="category/java/bestpractices.xml/UseVarargs"/>
+	<rule ref="category/java/bestpractices.xml/WhileLoopWithLiteralBoolean"/>
 
-	<rule ref="category/java/errorprone.xml/AvoidBranchingStatementAsLastInLoop" />
-	<rule ref="category/java/errorprone.xml/AvoidDecimalLiteralsInBigDecimalConstructor" />
-	<rule ref="category/java/errorprone.xml/AvoidMultipleUnaryOperators" />
-	<rule ref="category/java/errorprone.xml/AvoidUsingOctalValues" />
-	<rule ref="category/java/errorprone.xml/BrokenNullCheck" />
-	<rule ref="category/java/errorprone.xml/CheckSkipResult" />
-	<rule ref="category/java/errorprone.xml/ClassCastExceptionWithToArray" />
-	<rule ref="category/java/errorprone.xml/DontUseFloatTypeForLoopIndices" />
-	<rule ref="category/java/errorprone.xml/EmptyCatchBlock" />
-	<rule ref="category/java/errorprone.xml/EmptyFinallyBlock" />
-	<rule ref="category/java/errorprone.xml/EmptyIfStmt" />
-	<rule ref="category/java/errorprone.xml/EmptyInitializer" />
-	<rule ref="category/java/errorprone.xml/EmptyStatementBlock" />
-	<rule ref="category/java/errorprone.xml/EmptyStatementNotInLoop" />
-	<rule ref="category/java/errorprone.xml/EmptySwitchStatements" />
-	<rule ref="category/java/errorprone.xml/EmptySynchronizedBlock" />
-	<rule ref="category/java/errorprone.xml/EmptyTryBlock" />
-	<rule ref="category/java/errorprone.xml/EmptyWhileStmt" />
-	<rule ref="category/java/errorprone.xml/ImportFromSamePackage" />
-	<rule ref="category/java/errorprone.xml/JumbledIncrementer" />
-	<rule ref="category/java/errorprone.xml/MisplacedNullCheck" />
-	<rule ref="category/java/errorprone.xml/OverrideBothEqualsAndHashcode" />
-	<rule ref="category/java/errorprone.xml/ReturnFromFinallyBlock" />
-	<rule ref="category/java/errorprone.xml/UnconditionalIfStatement" />
-	<rule ref="category/java/errorprone.xml/UnnecessaryConversionTemporary" />
-	<rule ref="category/java/errorprone.xml/UnusedNullCheckInEquals" />
-	<rule ref="category/java/errorprone.xml/UselessOperationOnImmutable" />
+	<!--Code Style-->
+	<!--Rules which enforce a specific coding style.-->
 
-	<rule ref="category/java/multithreading.xml/AvoidThreadGroup" />
-	<rule ref="category/java/multithreading.xml/DontCallThreadRun" />
-	<rule ref="category/java/multithreading.xml/DoubleCheckedLocking" />
+	<!--<rule ref="category/java/codestyle.xml/AtLeastOneConstructor"/>-->
+	<rule ref="category/java/codestyle.xml/AvoidDollarSigns"/>
+	<rule ref="category/java/codestyle.xml/AvoidProtectedFieldInFinalClass"/>
+	<rule ref="category/java/codestyle.xml/AvoidProtectedMethodInFinalClassNotExtending"/>
+	<rule ref="category/java/codestyle.xml/AvoidUsingNativeCode"/>
+	<rule ref="category/java/codestyle.xml/BooleanGetMethodName"/>
+	<!--<rule ref="category/java/codestyle.xml/CallSuperInConstructor"/>-->
+	<rule ref="category/java/codestyle.xml/ClassNamingConventions"/>
+	<!--<rule ref="category/java/codestyle.xml/CommentDefaultAccessModifier"/>-->
+	<rule ref="category/java/codestyle.xml/ConfusingTernary"/>
+	<rule ref="category/java/codestyle.xml/ControlStatementBraces"/>
+	<rule ref="category/java/codestyle.xml/EmptyMethodInAbstractClassShouldBeAbstract"/>
+	<rule ref="category/java/codestyle.xml/ExtendsObject"/>
+	<rule ref="category/java/codestyle.xml/FieldDeclarationsShouldBeAtStartOfClass"/>
+	<rule ref="category/java/codestyle.xml/FieldNamingConventions"/>
+	<rule ref="category/java/codestyle.xml/ForLoopShouldBeWhileLoop"/>
+	<rule ref="category/java/codestyle.xml/FormalParameterNamingConventions"/>
+	<rule ref="category/java/codestyle.xml/GenericsNaming"/>
+	<rule ref="category/java/codestyle.xml/IdenticalCatchBranches"/>
+	<rule ref="category/java/codestyle.xml/LinguisticNaming"/>
+	<rule ref="category/java/codestyle.xml/LocalHomeNamingConvention"/>
+	<rule ref="category/java/codestyle.xml/LocalInterfaceSessionNamingConvention"/>
+	<!--<rule ref="category/java/codestyle.xml/LocalVariableCouldBeFinal"/>-->
+	<rule ref="category/java/codestyle.xml/LocalVariableNamingConventions"/>
+	<!--<rule ref="category/java/codestyle.xml/LongVariable"/>-->
+	<rule ref="category/java/codestyle.xml/MDBAndSessionBeanNamingConvention"/>
+	<!--<rule ref="category/java/codestyle.xml/MethodArgumentCouldBeFinal"/>-->
+	<rule ref="category/java/codestyle.xml/MethodNamingConventions"/>
+	<rule ref="category/java/codestyle.xml/NoPackage"/>
+	<!--<rule ref="category/java/codestyle.xml/OnlyOneReturn"/>-->
+	<rule ref="category/java/codestyle.xml/PackageCase"/>
+	<rule ref="category/java/codestyle.xml/PrematureDeclaration"/>
+	<rule ref="category/java/codestyle.xml/RemoteInterfaceNamingConvention"/>
+	<rule ref="category/java/codestyle.xml/RemoteSessionInterfaceNamingConvention"/>
+	<rule ref="category/java/codestyle.xml/ShortClassName"/>
+	<rule ref="category/java/codestyle.xml/ShortMethodName"/>
+	<!--<rule ref="category/java/codestyle.xml/ShortVariable"/>-->
+	<rule ref="category/java/codestyle.xml/TooManyStaticImports"/>
+	<rule ref="category/java/codestyle.xml/UnnecessaryAnnotationValueElement"/>
+	<rule ref="category/java/codestyle.xml/UnnecessaryCast"/>
+	<rule ref="category/java/codestyle.xml/UnnecessaryConstructor"/>
+	<rule ref="category/java/codestyle.xml/UnnecessaryFullyQualifiedName"/>
+	<rule ref="category/java/codestyle.xml/UnnecessaryImport"/>
+	<rule ref="category/java/codestyle.xml/UnnecessaryLocalBeforeReturn"/>
+	<rule ref="category/java/codestyle.xml/UnnecessaryModifier"/>
+	<rule ref="category/java/codestyle.xml/UnnecessaryReturn"/>
+	<rule ref="category/java/codestyle.xml/UseDiamondOperator"/>
+	<rule ref="category/java/codestyle.xml/UselessParentheses"/>
+	<rule ref="category/java/codestyle.xml/UselessQualifiedThis"/>
+	<rule ref="category/java/codestyle.xml/UseShortArrayInitializer"/>
+	<rule ref="category/java/codestyle.xml/UseUnderscoresInNumericLiterals"/>
 
-	<rule ref="category/java/performance.xml/BigIntegerInstantiation" />
-	<rule ref="category/java/performance.xml/BooleanInstantiation" />
+	<!--Design-->
+	<!--Rules that help you discover design issues.-->
+
+<!--	AbstractClassWithoutAnyMethod-->
+<!--	AvoidCatchingGenericException-->
+<!--	AvoidDeeplyNestedIfStmts-->
+<!--	AvoidRethrowingException-->
+<!--	AvoidThrowingNewInstanceOfSameException-->
+<!--	AvoidThrowingNullPointerException-->
+<!--	AvoidThrowingRawExceptionTypes-->
+<!--	AvoidUncheckedExceptionsInSignatures-->
+<!--	ClassWithOnlyPrivateConstructorsShouldBeFinal-->
+<!--	CognitiveComplexity-->
+<!--	CollapsibleIfStatements-->
+<!--	CouplingBetweenObjects-->
+<!--	CyclomaticComplexity-->
+<!--	DataClass-->
+<!--	DoNotExtendJavaLangError-->
+<!--	ExceptionAsFlowControl-->
+<!--	ExcessiveClassLength-->
+<!--	ExcessiveImports-->
+<!--	ExcessiveMethodLength-->
+<!--	ExcessiveParameterList-->
+<!--	ExcessivePublicCount-->
+<!--	FinalFieldCouldBeStatic-->
+<!--	GodClass-->
+<!--	ImmutableField-->
+<!--	LawOfDemeter-->
+<!--	LogicInversion-->
+<!--	LoosePackageCoupling-->
+<!--	MutableStaticState-->
+<!--	NcssCount-->
+<!--	NPathComplexity-->
+<!--	SignatureDeclareThrowsException-->
+<!--	SimplifiedTernary-->
+<!--	SimplifyBooleanAssertion-->
+<!--	SimplifyBooleanExpressions-->
+<!--	SimplifyBooleanReturns-->
+<!--	SimplifyConditional-->
+<!--	SingularField-->
+<!--	SwitchDensity-->
+<!--	TooManyFields-->
+<!--	TooManyMethods-->
+<!--	UselessOverridingMethod-->
+<!--	UseObjectForClearerAPI-->
+<!--	UseUtilityClass-->
+
+	<!--Documentation-->
+	<!--Rules that are related to code documentation.-->
+
+<!--	CommentContent-->
+<!--	CommentRequired-->
+<!--	CommentSize-->
+<!--	UncommentedEmptyConstructor-->
+<!--	UncommentedEmptyMethodBody-->
+
+	<!--Error Prone-->
+	<!--Rules to detect constructs that are either broken, extremely confusing or prone to runtime errors.-->
+
+<!--	AssignmentInOperand-->
+<!--	AssignmentToNonFinalStatic-->
+<!--	AvoidAccessibilityAlteration-->
+<!--	AvoidAssertAsIdentifier-->
+<!--	AvoidBranchingStatementAsLastInLoop-->
+<!--	AvoidCallingFinalize-->
+<!--	AvoidCatchingNPE-->
+<!--	AvoidCatchingThrowable-->
+<!--	AvoidDecimalLiteralsInBigDecimalConstructor-->
+<!--	AvoidDuplicateLiterals-->
+<!--	AvoidEnumAsIdentifier-->
+<!--	AvoidFieldNameMatchingMethodName-->
+<!--	AvoidFieldNameMatchingTypeName-->
+<!--	AvoidInstanceofChecksInCatchClause-->
+<!--	AvoidLiteralsInIfCondition-->
+<!--	AvoidLosingExceptionInformation-->
+<!--	AvoidMultipleUnaryOperators-->
+<!--	AvoidUsingOctalValues-->
+<!--	BadComparison-->
+<!--	BeanMembersShouldSerialize-->
+<!--	BrokenNullCheck-->
+<!--	CallSuperFirst-->
+<!--	CallSuperLast-->
+<!--	CheckSkipResult-->
+<!--	ClassCastExceptionWithToArray-->
+<!--	CloneMethodMustBePublic-->
+<!--	CloneMethodMustImplementCloneable-->
+<!--	CloneMethodReturnTypeMustMatchClassName-->
+<!--	CloseResource-->
+<!--	CompareObjectsWithEquals-->
+<!--	ConstructorCallsOverridableMethod-->
+<!--	DetachedTestCase-->
+<!--	DoNotCallGarbageCollectionExplicitly-->
+<!--	DoNotExtendJavaLangThrowable-->
+<!--	DoNotHardCodeSDCard-->
+<!--	DoNotTerminateVM-->
+<!--	DoNotThrowExceptionInFinally-->
+<!--	DontImportSun-->
+<!--	DontUseFloatTypeForLoopIndices-->
+<!--	EmptyCatchBlock-->
+<!--	EmptyFinalizer-->
+<!--	EmptyFinallyBlock-->
+<!--	EmptyIfStmt-->
+<!--	EmptyInitializer-->
+<!--	EmptyStatementBlock-->
+<!--	EmptyStatementNotInLoop-->
+<!--	EmptySwitchStatements-->
+<!--	EmptySynchronizedBlock-->
+<!--	EmptyTryBlock-->
+<!--	EmptyWhileStmt-->
+<!--	EqualsNull-->
+<!--	FinalizeDoesNotCallSuperFinalize-->
+<!--	FinalizeOnlyCallsSuperFinalize-->
+<!--	FinalizeOverloaded-->
+<!--	FinalizeShouldBeProtected-->
+<!--	IdempotentOperations-->
+<!--	InstantiationToGetClass-->
+<!--	InvalidLogMessageFormat-->
+<!--	JumbledIncrementer-->
+<!--	JUnitSpelling-->
+<!--	JUnitStaticSuite-->
+<!--	MethodWithSameNameAsEnclosingClass-->
+<!--	MisplacedNullCheck-->
+<!--	MissingBreakInSwitch-->
+<!--	MissingSerialVersionUID-->
+<!--	MissingStaticMethodInNonInstantiatableClass-->
+<!--	MoreThanOneLogger-->
+<!--	NonCaseLabelInSwitchStatement-->
+<!--	NonStaticInitializer-->
+<!--	NullAssignment-->
+<!--	OverrideBothEqualsAndHashcode-->
+<!--	ProperCloneImplementation-->
+<!--	ProperLogger-->
+<!--	ReturnEmptyArrayRatherThanNull-->
+<!--	ReturnFromFinallyBlock-->
+<!--	SimpleDateFormatNeedsLocale-->
+<!--	SingleMethodSingleton-->
+<!--	SingletonClassReturningNewInstance-->
+<!--	StaticEJBFieldShouldBeFinal-->
+<!--	StringBufferInstantiationWithChar-->
+<!--	SuspiciousEqualsMethodName-->
+<!--	SuspiciousHashcodeMethodName-->
+<!--	SuspiciousOctalEscape-->
+<!--	TestClassWithoutTestCases-->
+<!--	UnconditionalIfStatement-->
+<!--	UnnecessaryBooleanAssertion-->
+<!--	UnnecessaryCaseChange-->
+<!--	UnnecessaryConversionTemporary-->
+<!--	UnusedNullCheckInEquals-->
+<!--	UseCorrectExceptionLogging-->
+<!--	UseEqualsToCompareStrings-->
+<!--	UselessOperationOnImmutable-->
+<!--	UseLocaleWithCaseConversions-->
+<!--	UseProperClassLoader-->
+
+	<!--Multithreading-->
+	<!--Rules that flag issues when dealing with multiple threads of execution.-->
+
+<!--	AvoidSynchronizedAtMethodLevel-->
+<!--	AvoidThreadGroup-->
+<!--	AvoidUsingVolatile-->
+<!--	DoNotUseThreads-->
+<!--	DontCallThreadRun-->
+<!--	DoubleCheckedLocking-->
+<!--	NonThreadSafeSingleton-->
+<!--	UnsynchronizedStaticFormatter-->
+<!--	UseConcurrentHashMap-->
+<!--	UseNotifyAllInsteadOfNotify-->
+
+	<!--Performance-->
+	<!--Rules that flag suboptimal code.-->
+
+<!--	AddEmptyString-->
+<!--	AppendCharacterWithChar-->
+<!--	AvoidArrayLoops-->
+<!--	AvoidCalendarDateCreation-->
+<!--	AvoidFileStream-->
+<!--	AvoidInstantiatingObjectsInLoops-->
+<!--	BigIntegerInstantiation-->
+<!--	BooleanInstantiation-->
+<!--	ByteInstantiation-->
+<!--	ConsecutiveAppendsShouldReuse-->
+<!--	ConsecutiveLiteralAppends-->
+<!--	InefficientEmptyStringCheck-->
+<!--	InefficientStringBuffering-->
+<!--	InsufficientStringBufferDeclaration-->
+<!--	IntegerInstantiation-->
+<!--	LongInstantiation-->
+<!--	OptimizableToArrayCall-->
+<!--	RedundantFieldInitializer-->
+<!--	ShortInstantiation-->
+<!--	StringInstantiation-->
+<!--	StringToString-->
+<!--	TooFewBranchesForASwitchStatement-->
+<!--	UnnecessaryWrapperObjectCreation-->
+<!--	UseArrayListInsteadOfVector-->
+<!--	UseArraysAsList-->
+<!--	UseIndexOfChar-->
+<!--	UseIOStreamsWithApacheCommonsFileItem-->
+<!--	UselessStringValueOf-->
+<!--	UseStringBufferForStringAppends-->
+<!--	UseStringBufferLength-->
+
+	<!--Security-->
+	<!--Rules that flag potential security flaws.-->
+
+<!--	HardCodedCryptoKey-->
+<!--	InsecureCryptoIv-->
 
 </ruleset>
