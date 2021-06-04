@@ -8,76 +8,132 @@
 		<property name="lineSeparator" value="lf"/>
 	</module>
 
-	<module name="SuppressWarningsFilter"/>
+	<!-- Miscellaneous -->
+	<module name="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
+	<module name="com.puppycrawl.tools.checkstyle.checks.UniquePropertiesCheck"/>
+
+	<!-- Size Violations -->
+	<module name="com.puppycrawl.tools.checkstyle.checks.sizes.FileLengthCheck"/>
+	<module name="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck">
+		<property name="ignorePattern" value="^\t*\* *[^ ]+$"/>
+		<property name="max" value="100"/>
+		<property name="tabWidth" value="1"/>
+	</module>
+
+	<!-- Suppress -->
+	<module name="com.puppycrawl.tools.checkstyle.filters.SuppressWarningsFilter" />
+
+	<!-- Whitespace -->
+	<!--<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck"/>-->
 
 	<!-- TreeWalker Checks -->
 	<module name="com.puppycrawl.tools.checkstyle.TreeWalker">
-
-		<module name="SuppressWarningsHolder" />
-
 		<!-- Annotations -->
-		<module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationUseStyleCheck">
-			<property name="elementStyle" value="compact" />
-		</module>
-		<module name="com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.annotation.PackageAnnotationCheck" />
 		<module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck">
 			<property name="allowSamelineSingleParameterlessAnnotation"
 								value="false" />
 		</module>
+		<module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationUseStyleCheck">
+			<property name="elementStyle" value="compact" />
+		</module>
+		<module name="com.puppycrawl.tools.checkstyle.checks.annotation.MissingDeprecatedCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.annotation.PackageAnnotationCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.annotation.SuppressWarningsCheck"/>
 
 		<!-- Block Checks -->
+		<module name="com.puppycrawl.tools.checkstyle.checks.blocks.AvoidNestedBlocksCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck">
 			<property name="option" value="text" />
 		</module>
-		<module name="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.blocks.AvoidNestedBlocksCheck" />
+		<module name="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyCatchBlockCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
 
 		<!-- Class Design -->
-		<module name="com.puppycrawl.tools.checkstyle.checks.design.FinalClassCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.design.InterfaceIsTypeCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.design.HideUtilityClassConstructorCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.design.MutableExceptionCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.design.InnerTypeLastCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.design.OneTopLevelClassCheck" />
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>-->
+		<module name="com.puppycrawl.tools.checkstyle.checks.design.FinalClassCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.design.HideUtilityClassConstructorCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.design.InnerTypeLastCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.design.InterfaceIsTypeCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.design.MutableExceptionCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.design.OneTopLevelClassCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.design.ThrowsCountCheck"/>
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>-->
 
 		<!-- Coding -->
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.CovariantEqualsCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.EmptyStatementCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.EqualsHashCodeCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.InnerAssignmentCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanExpressionCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanReturnCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.StringLiteralEqualityCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.NestedForDepthCheck">
-			<property name="max" value="3" />
-		</module>
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.NestedIfDepthCheck">
-			<property name="max" value="3" />
-		</module>
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.NestedTryDepthCheck">
-			<property name="max" value="3" />
-		</module>
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.MultipleVariableDeclarationsCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.RequireThisCheck">
-			<property name="checkMethods" value="false" />
-			<property name="validateOnlyOverlapping" value="false" />
-		</module>
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.OneStatementPerLineCheck" />
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.ArrayTrailingCommaCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.AvoidDoubleBraceInitializationCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.AvoidInlineConditionalsCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.AvoidNoArgumentSuperConstructorCallCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.CovariantEqualsCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.DefaultComesLastCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.EmptyStatementCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.EqualsAvoidNullCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.EqualsHashCodeCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.ExplicitInitializationCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheck"/>
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.coding.FinalLocalVariableCheck"/>-->
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.IllegalCatchCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.IllegalInstantiationCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.IllegalThrowsCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenTextCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.IllegalTypeCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.InnerAssignmentCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.MatchXpathCheck"/>
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.coding.MissingCtorCheck"/>-->
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.ModifiedControlVariableCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.MultipleStringLiteralsCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.MultipleVariableDeclarationsCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.NestedForDepthCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.NestedIfDepthCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.NestedTryDepthCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.NoArrayTrailingCommaCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.NoCloneCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.NoEnumTrailingCommaCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.NoFinalizerCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.OneStatementPerLineCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.OverloadMethodsDeclarationOrderCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.PackageDeclarationCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.ParameterAssignmentCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.RequireThisCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.ReturnCountCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanExpressionCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanReturnCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.StringLiteralEqualityCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.SuperCloneCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.SuperFinalizeCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.UnnecessaryParenthesesCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.UnnecessarySemicolonAfterOuterTypeDeclarationCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.UnnecessarySemicolonAfterTypeMemberDeclarationCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.UnnecessarySemicolonInEnumerationCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.UnnecessarySemicolonInTryWithResourcesCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.VariableDeclarationUsageDistanceCheck"/>
 
 		<!-- Imports -->
-		<module name="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck" />
+		<module name="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStaticImportCheck">
-			<property name="excludes"
-								value="org.assertj.core.api.Assertions.*, org.junit.Assert.*, org.junit.Assume.*, org.junit.internal.matchers.ThrowableMessageMatcher.*, org.hamcrest.CoreMatchers.*, org.hamcrest.Matchers.*, org.springframework.boot.configurationprocessor.ConfigurationMetadataMatchers.*, org.springframework.boot.configurationprocessor.TestCompiler.*, org.springframework.boot.test.autoconfigure.AutoConfigurationImportedCondition.*, org.mockito.Mockito.*, org.mockito.BDDMockito.*, org.mockito.Matchers.*, org.mockito.ArgumentMatchers.*, org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.*, org.springframework.restdocs.hypermedia.HypermediaDocumentation.*, org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*, org.springframework.test.web.servlet.result.MockMvcResultMatchers.*, org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.*, org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.*, org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.*, org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo, org.springframework.test.web.client.match.MockRestRequestMatchers.*, org.springframework.test.web.client.response.MockRestResponseCreators.*, org.springframework.web.reactive.function.server.RequestPredicates.*, org.springframework.web.reactive.function.server.RouterFunctions.*, org.springframework.test.web.servlet.setup.MockMvcBuilders.*" />
+			<property name="excludes" value="org.assertj.core.api.Assertions.*"/>
+			<property name="excludes" value="org.junit.Assert.*"/>
+			<property name="excludes" value="org.junit.Assume.*"/>
+			<property name="excludes" value="org.junit.internal.matchers.ThrowableMessageMatcher.*"/>
+			<property name="excludes" value="org.hamcrest.CoreMatchers.*"/>
+			<property name="excludes" value="org.hamcrest.Matchers.*"/>
+			<property name="excludes" value="org.mockito.Mockito.*"/>
+			<property name="excludes" value="org.mockito.BDDMockito.*"/>
+			<property name="excludes" value="org.mockito.Matchers.*"/>
+			<property name="excludes" value="org.mockito.ArgumentMatchers.*"/>
+			<property name="excludes" value="org.awaitility.Awaitility.*"/>
 		</module>
-		<module name="com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck">
-			<property name="processJavadoc" value="true" />
-		</module>
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>-->
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheck"/>-->
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.imports.ImportControlCheck"/>-->
 		<module name="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck">
 			<property name="groups" value="java,javax,com,net,org,*,lombok" />
 			<property name="ordered" value="true" />
@@ -85,18 +141,98 @@
 			<property name="option" value="bottom" />
 			<property name="sortStaticImportsAlphabetically" value="true" />
 		</module>
+		<module name="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+
+		<!-- Java doc -->
+		<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.AtclauseOrderCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.InvalidJavadocPositionCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocBlockTagLocationCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocContentLocationCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMissingLeadingAsteriskCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMissingWhitespaceAfterAsteriskCheck"/>
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>-->
+		<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocParagraphCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTagContinuationIndentationCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>-->
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>-->
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocPackageCheck"/>-->
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocTypeCheck"/>-->
+		<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.SingleLineJavadocCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheck"/>-->
+
+		<!-- Complexity -->
+		<module name="com.puppycrawl.tools.checkstyle.checks.metrics.BooleanExpressionComplexityCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.metrics.ClassDataAbstractionCouplingCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.metrics.ClassFanOutComplexityCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.metrics.JavaNCSSCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.metrics.NPathComplexityCheck"/>
 
 		<!-- Miscellaneous -->
+		<module name="com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.AvoidEscapedUnicodeCharactersCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheck">
 			<property name="tokens" value="BLOCK_COMMENT_BEGIN"/>
 		</module>
-		<module name="com.puppycrawl.tools.checkstyle.checks.UpperEllCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheck" />
+		<module name="com.puppycrawl.tools.checkstyle.checks.DescendantTokenCheck"/>
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>-->
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.IndentationCheck"/>-->
+		<module name="com.puppycrawl.tools.checkstyle.checks.NoCodeInFileCheck"/>
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.OrderedPropertiesCheck"/>-->
+		<module name="com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.TrailingCommentCheck"/>
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.TranslationCheck"/>-->
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.UncommentedMainCheck"/>-->
+		<module name="com.puppycrawl.tools.checkstyle.checks.UpperEllCheck"/>
 
 		<!-- Modifiers -->
-		<module name="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck" />
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.modifier.ClassMemberImpliedModifierCheck"/>-->
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.modifier.InterfaceMemberImpliedModifierCheck"/>-->
+		<module name="com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck"/>
 
+		<!-- Naming Conventions -->
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.AbstractClassNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.CatchParameterNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.ClassTypeParameterNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.IllegalIdentifierNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.InterfaceTypeParameterNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.LambdaParameterNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.LocalFinalVariableNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.MethodTypeParameterNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.PatternVariableNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.RecordComponentNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.RecordTypeParameterNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.naming.TypeNameCheck"/>
+
+		<!-- Regexp -->
+		<!--<module name="RegexpCheck"/>-->
+		<!--<module name="RegexpMultilineCheck"/>-->
+		<!--<module name="RegexpOnFilenameCheck"/>-->
+		<!--<module name="RegexpSinglelineCheck"/>-->
+		<!--<module name="RegexpSinglelineJavaCheck"/>-->
+		<module name="RegexpSinglelineJava">
+			<property name="format" value="^\t* +\t*\S"/>
+			<property name="message"
+								value="Line has leading space characters; indentation should be performed with tabs only."/>
+			<property name="ignoreComments" value="true"/>
+		</module>
 		<!-- Regexp -->
 		<module name="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineJavaCheck">
 			<property name="format" value="^\t* +\t*\S" />
@@ -124,16 +260,46 @@
 			<property name="message" value="Trailing whitespace" />
 		</module>
 
+		<!-- Suppress -->
+		<module name="com.puppycrawl.tools.checkstyle.filters.SuppressionCommentFilter">
+			<property name="offCommentFormat" value="CHECKSTYLE:OFF"/>
+			<property name="onCommentFormat" value="CHECKSTYLE:ON"/>
+		</module>
+		<module name="com.puppycrawl.tools.checkstyle.checks.SuppressWarningsHolder"/>
+
+		<!-- Size Violations -->
+		<module name="com.puppycrawl.tools.checkstyle.checks.sizes.AnonInnerLengthCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.sizes.ExecutableStatementCountCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.sizes.LambdaBodyLengthCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.sizes.MethodCountCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.sizes.OuterTypeNumberCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.sizes.ParameterNumberCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.sizes.RecordComponentNumberCheck"/>
+
 		<!-- Whitespace -->
-		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.GenericWhitespaceCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck" />
+		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyForInitializerPadCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyForIteratorPadCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck">
+			<property name="allowNoEmptyLineBetweenFields" value="true"/>
+			<property name="allowMultipleEmptyLines" value="false"/>
+			<property name="allowMultipleEmptyLinesInsideClassMembers" value="false"/>
+		</module>
+		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.GenericWhitespaceCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.NoLineWrapCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck" >
 			<property name="tokens" value="BNOT, DEC, DOT, INC, LNOT, UNARY_MINUS, UNARY_PLUS, ARRAY_DECLARATOR"/>
 		</module>
-		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.TypecastParenPadCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck" />
-		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck" />
+		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.SeparatorWrapCheck">
+			<property name="tokens" value="COMMA, SEMI, ELLIPSIS, LPAREN, RPAREN, ARRAY_DECLARATOR, RBRACK, METHOD_REF"/>
+		</module>
+		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.SingleSpaceSeparatorCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.TypecastParenPadCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 	</module>
 </module>

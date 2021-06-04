@@ -15,7 +15,16 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
 		<maven-changes-plugin.version>2.12.1</maven-changes-plugin.version>
+		<checkstyle.rules.version>8.43</checkstyle.rules.version>
 	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.puppycrawl.tools</groupId>
+			<artifactId>checkstyle</artifactId>
+			<version>${checkstyle.rules.version}</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
