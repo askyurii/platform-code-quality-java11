@@ -8,6 +8,8 @@
 		<property name="lineSeparator" value="lf"/>
 	</module>
 
+	<module name="SuppressWarningsFilter" />
+
 	<!-- TreeWalker Checks -->
 	<module name="com.puppycrawl.tools.checkstyle.TreeWalker">
 		<!-- Annotations -->
@@ -118,6 +120,13 @@
 			<property name="illegalPattern" value="true" />
 			<property name="message" value="Trailing whitespace" />
 		</module>
+
+		<!--Supress-->
+		<module name="SuppressionCommentFilter">
+			<property name="offCommentFormat" value="CHECKSTYLE:OFF"/>
+			<property name="onCommentFormat" value="CHECKSTYLE:ON"/>
+		</module>
+		<module name="SuppressWarningsHolder" />
 
 		<!-- Whitespace -->
 		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.GenericWhitespaceCheck" />
