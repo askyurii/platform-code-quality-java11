@@ -13,7 +13,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
+		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
 		<maven-changes-plugin.version>2.12.1</maven-changes-plugin.version>
 		<checkstyle.rules.version>8.43</checkstyle.rules.version>
 	</properties>
@@ -29,8 +29,23 @@
 	<build>
 		<plugins>
 			<plugin>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>${maven-jar-plugin.version}</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>${maven-assembly-plugin.version}</version>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>pack-maven-assembly-plugin</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-changes-plugin</artifactId>

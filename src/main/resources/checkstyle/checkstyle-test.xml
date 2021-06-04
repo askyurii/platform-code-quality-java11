@@ -65,7 +65,7 @@
 		<!-- Coding -->
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.ArrayTrailingCommaCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.AvoidDoubleBraceInitializationCheck"/>
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.AvoidInlineConditionalsCheck"/>
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.coding.AvoidInlineConditionalsCheck"/>-->
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.AvoidNoArgumentSuperConstructorCallCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.CovariantEqualsCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
@@ -76,7 +76,9 @@
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.ExplicitInitializationCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheck"/>
 		<!--<module name="com.puppycrawl.tools.checkstyle.checks.coding.FinalLocalVariableCheck"/>-->
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck">
+			<property name="ignoreConstructorParameter" value="true"/>
+		</module>
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.IllegalCatchCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.IllegalInstantiationCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.IllegalThrowsCheck"/>
@@ -84,7 +86,7 @@
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenTextCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.IllegalTypeCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.InnerAssignmentCheck"/>
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+		<!--<module name="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>-->
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.MatchXpathCheck"/>
 		<!--<module name="com.puppycrawl.tools.checkstyle.checks.coding.MissingCtorCheck"/>-->
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
@@ -103,7 +105,9 @@
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.PackageDeclarationCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.ParameterAssignmentCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.RequireThisCheck"/>
-		<module name="com.puppycrawl.tools.checkstyle.checks.coding.ReturnCountCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.ReturnCountCheck">
+			<property name="max" value="3"/>
+		</module>
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanExpressionCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanReturnCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.coding.StringLiteralEqualityCheck"/>
@@ -300,6 +304,8 @@
 		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.SingleSpaceSeparatorCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.TypecastParenPadCheck"/>
 		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
-		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+		<module name="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck">
+			<property name="allowEmptyTypes" value="true"/>
+		</module>
 	</module>
 </module>
