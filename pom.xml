@@ -39,7 +39,7 @@
 				</configuration>
 				<executions>
 					<execution>
-						<id>pack-maven-assembly-plugin</id>
+						<id>pack-jar-with-dependencies</id>
 						<phase>package</phase>
 						<goals>
 							<goal>single</goal>
