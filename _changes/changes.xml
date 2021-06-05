@@ -1,0 +1,16 @@
+<document xmlns="http://maven.apache.org/changes/1.0.0"
+					xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					xsi:schemaLocation="http://maven.apache.org/changes/1.0.0
+					http://maven.apache.org/xsd/changes-1.0.0.xsd">
+	<properties>
+		<title>com.bondarenko.platform:platform-code-quality-java11</title>
+		<author email="bondarenkoyura@gmail.com">Yurii Bondarenko</author>
+	</properties>
+	<body>
+		<release version="0.0.1" date="2020-05-56" description="Initial release">
+			<action type="add" issue="AY-218">
+				Dummy setup for the first project.
+			</action>
+		</release>
+	</body>
+</document>
