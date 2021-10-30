@@ -12,11 +12,24 @@
 		<Bug pattern="EI_EXPOSE_REP, EI_EXPOSE_REP2"/>
 	</Match>
 
+	<!-- COMMON SECURITY -->
+
+	<Match>
+		<Bug pattern="SPRING_ENDPOINT, CRLF_INJECTION_LOGS" />
+	</Match>
+
 	<!-- TESTS -->
 
 	<Match>
-		<Class name="~(.*\.IT\w+$)|(.*\.\w+Test$)"/>
+		<Class name="~(.*\.IT\w+$)|(.*\.\w+Test$)|(.*\.Mock.*)"/>
 		<Bug pattern="UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR,SIC_INNER_SHOULD_BE_STATIC_ANON"/>
+	</Match>
+
+	<!-- TESTS SECURITY -->
+
+	<Match>
+		<Class name="~(.*\.IT\w+$)|(.*\.\w+Test$)|(.*\.Mock.*)"/>
+		<Bug pattern="TRUST_BOUNDARY_VIOLATION,UNENCRYPTED_SERVER_SOCKET,CRLF_INJECTION_LOGS"/>
 	</Match>
 
 </FindBugsFilter>
