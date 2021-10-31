@@ -28,6 +28,10 @@
 
 	<!-- TreeWalker Checks -->
 	<module name="com.puppycrawl.tools.checkstyle.TreeWalker">
+
+		<!--Filters-->
+		<module name="com.puppycrawl.tools.checkstyle.filters.SuppressionCommentFilter"/>
+
 		<!-- Annotations -->
 		<module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck">
 			<property name="allowSamelineSingleParameterlessAnnotation"
