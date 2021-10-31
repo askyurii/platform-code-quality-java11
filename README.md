@@ -11,7 +11,7 @@
 ### Other configs
 
 1. Apache [versions](https://www.mojohaus.org/versions-maven-plugin) plugin config to auto update
-   dependencies
+	 dependencies
 
 ## Usage
 
@@ -77,6 +77,11 @@
 		</dependencies>
 	</plugin>
 
+#### Which versions to use?
+
+	<maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+	<maven-checkstyle-plugin.checkstyle.rules.version>8.43</maven-checkstyle-plugin.checkstyle.rules.version>
+
 #### What are required properties
 
 	<maven-checkstyle-plugin.version/>
@@ -90,17 +95,11 @@
 
 Add to maven properties
 
-    <maven-checkstyle-plugin.skip>true<maven-checkstyle-plugin.skip>
-
-#### Which rules to use?
-
-The latest checked rules
-
-    <maven-checkstyle-plugin.checkstyle.rules.version>8.43</maven-checkstyle-plugin.checkstyle.rules.version>
+	<maven-checkstyle-plugin.skip>true<maven-checkstyle-plugin.skip>
 
 #### How to suppress warnings?
 
-1. You can use a ```java.lang.SuppressWarnings```
+1. You can use ```java.lang.SuppressWarnings``` annotation
 
 
 	@SuppressWarnings({"EmptyLineSeparator", "SingleSpaceSeparator"})
@@ -109,7 +108,7 @@ The latest checked rules
 
 
 	//CHECKSTYLE:OFF SingleSpaceSeparator
-	ignored code here
+	ignored code here 
 	//CHECKSTYLE:ON SingleSpaceSeparator
 
 #### Where can I find the results of the scan?
@@ -168,6 +167,11 @@ And for test code: ```<project>/target/checkstyle/checkstyle-test.xml```
 		</dependencies>
 	</plugin>
 
+#### Which versions to use?
+
+	<spotbugs-maven-plugin.spotbugs.version>4.2.3</spotbugs-maven-plugin.spotbugs.version>
+	<spotbugs-maven-plugin.spotbugs.findsecbugs-plugin.version>1.10.1</spotbugs-maven-plugin.spotbugs.findsecbugs-plugin.version>
+
 #### What are required properties
 
 	<spotbugs-maven-plugin.version/>
@@ -180,20 +184,14 @@ And for test code: ```<project>/target/checkstyle/checkstyle-test.xml```
 
 	<spotbugs-maven-plugin.skip>true</spotbugs-maven-plugin.skip>
 
-#### Which rules to use?
-
-	<spotbugs-maven-plugin.spotbugs.version>4.2.3</spotbugs-maven-plugin.spotbugs.version>
-	<spotbugs-maven-plugin.spotbugs.findsecbugs-plugin.version>1.10.1</spotbugs-maven-plugin.spotbugs.findsecbugs-plugin.version>
-
-
 #### How to suppress warnings?
 
-1. You can use a ```edu.umd.cs.findbugs.annotations.SuppressFBWarnings```
+1. You can use ```edu.umd.cs.findbugs.annotations.SuppressFBWarnings``` annotation
 
 
 	@SuppressFBWarnings("CRLF_INJECTION_LOGS")
 	@PostMapping("/logout")
-	void logout(@UserIdentifier UserId userId) {
+	void logout(@UserIdentifier UserId userId) { 
 		log.info("logout '{}'", userId);
 	}
 
@@ -205,4 +203,98 @@ Can be imported from
 		<scope>provided</scope>
 	</dependency>
 
+#### Where can I find the results of the scan?
+
+Your can check the following path for production code and
+tests: ```<project>/target/spotbugs/source-check.xml```
+
 ### PMD
+
+#### How to include?
+
+	<plugin>
+		<artifactId>maven-pmd-plugin</artifactId>
+		<version>${maven-pmd-plugin.version}</version>
+		<configuration>
+			<skip>${maven-pmd-plugin.skip}</skip>
+			<linkXRef>true</linkXRef>
+			<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+			<minimumTokens>60</minimumTokens>
+			<targetJdk>${project.java.version}</targetJdk>
+			<printFailingErrors>${maven-pmd-plugin.printFailingErrors}</printFailingErrors>
+			<failOnViolation>${maven-pmd-plugin.failOnViolation}</failOnViolation>
+			<outputDirectory>${project.build.directory}/pmd</outputDirectory>
+			<targetDirectory>${project.build.directory}/pmd</targetDirectory>
+			<includeTests>true</includeTests>
+			<rulesets>
+				<ruleset>/pmd/ruleset.xml</ruleset>
+			</rulesets>
+		</configuration>
+		<executions>
+			<execution>
+				<phase>pre-integration-test</phase>
+				<goals>
+					<goal>check</goal>
+				<goal>cpd-check</goal>
+				</goals>
+			</execution>
+		</executions>
+		<dependencies>
+			<dependency>
+				<groupId>net.sourceforge.pmd</groupId>
+				<artifactId>pmd-core</artifactId>
+				<version>${maven-pmd-plugin.pmd-rules.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.sourceforge.pmd</groupId>
+				<artifactId>pmd-java</artifactId>
+				<version>${maven-pmd-plugin.pmd-rules.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.sourceforge.pmd</groupId>
+				<artifactId>pmd-xml</artifactId>
+				<version>${maven-pmd-plugin.pmd-rules.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.bondarenko.platform</groupId>
+				<artifactId>platform-code-quality-java11</artifactId>
+				<version>${platform-code-quality-java11.version}</version>
+			</dependency>
+		</dependencies>
+	</plugin>
+
+#### Which versions to use?
+
+	<maven-pmd-plugin.version>3.13.0</maven-pmd-plugin.version>
+	<maven-pmd-plugin.failOnViolation>true</maven-pmd-plugin.failOnViolation>
+	<maven-pmd-plugin.printFailingErrors>true</maven-pmd-plugin.printFailingErrors>
+	<maven-pmd-plugin.pmd-rules.version>6.35.0</maven-pmd-plugin.pmd-rules.version>
+
+#### What are required properties
+
+	<maven-pmd-plugin.version/>
+	<maven-pmd-plugin.skip/>
+	<maven-pmd-plugin.printFailingErrors/>
+	<maven-pmd-plugin.failOnViolation/>
+	<maven-pmd-plugin.pmd-rules.version/>
+	<platform-code-quality-java11.version/>
+
+#### How to skip?
+
+	<maven-pmd-plugin.skip>true</maven-pmd-plugin.skip>
+
+#### How to suppress warnings?
+
+You can use ```java.lang.SuppressWarnings``` annotation
+
+	@SuppressWarnings("PMD.AvoidFileStream")
+	void login(@UserIdentifier UserId userId) throws FileNotFoundException {
+		new FileInputStream(userId.getUsername());
+		log.info("login '{}'", userId);
+	}
+
+#### Where can I find the results of the scan?
+
+Your can check the following path for production code and tests: ```<project>/target/pmd/pmd.html```
+
+To check duplicates report: ```<project>/target/pmd/cpd.html```
