@@ -11,6 +11,9 @@
 			<action type="add" issue="AY-218">
 				Dummy setup for the first project.
 			</action>
+			<action type="add" issue="AY-179">
+				Setup code quality standards
+			</action>
 		</release>
 	</body>
 </document>
