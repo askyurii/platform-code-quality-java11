@@ -103,6 +103,8 @@ Add to maven properties
 
 
 	@SuppressWarnings({"EmptyLineSeparator", "SingleSpaceSeparator"})
+	// or
+	@SuppressWarnings({"checkstyle:EmptyLineSeparator", "checkstyle:SingleSpaceSeparator"})
 
 2. You can ignore all checkstyle rules for a block of code with comment filter
 
